@@ -1,0 +1,35 @@
+﻿<Window x:Class="Demo.View.List"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Demo.View"
+        mc:Ignorable="d"
+        Title="Список Запросов" Height="450" Width="800">
+    <Grid>
+        <!-- Таблица для отображения данных -->
+        <DataGrid x:Name="RequestsDataGrid" 
+                  AutoGenerateColumns="False" 
+                  HorizontalAlignment="Stretch" 
+                  VerticalAlignment="Stretch" 
+                  Margin="10" 
+                  IsReadOnly="True" 
+                  CanUserSortColumns="True"
+                  SelectionMode="Single">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding requestID}" Width="*" />
+                <DataGridTextColumn Header="Дата начала" Binding="{Binding startDate}" Width="*" />
+                <DataGridTextColumn Header="Тип техники" Binding="{Binding orgTechType}" Width="*" />
+                <DataGridTextColumn Header="Модель техники" Binding="{Binding orgTechModel}" Width="*" />
+                <DataGridTextColumn Header="Описание проблемы" Binding="{Binding problemDescryption}" Width="*" />
+                <DataGridTextColumn Header="Статус запроса" Binding="{Binding requestStatus}" Width="*" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Кнопки для управления -->
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10">
+            <Button Content="Добавить" Width="100" Margin="5" Click="AddButton_Click" />
+            <Button Content="Удалить" Width="100" Margin="5" Click="DeleteButton_Click" />
+        </StackPanel>
+    </Grid>
+</Window>
